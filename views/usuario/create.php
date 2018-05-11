@@ -2,12 +2,12 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Info SQL/PDO</title>
+  <title>Sistema Tarefas</title>
   <link rel="stylesheet" href="../assets/bootstrap.min.css">
 </head>
 <body>
   <div class="container" style="padding-top: 40px;">
-    <form method="POST" action="../controllers/create_user.php">
+    <form method="POST" action="../../controllers/UsuarioController.php">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" id="nome" name="nome">
@@ -19,6 +19,7 @@
       <div class="form-group">
         <label for="idade">Idade</label>
         <input type="text" class="form-control" id="idade" name="idade">
+        <input type="hidden" class="form-control" id="action" name="action">
       </div>
       <input type="submit"  class="btn btn-default" value="Criar" style="float: right;">
     </form>

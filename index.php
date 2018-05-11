@@ -21,7 +21,7 @@
 			</tbody> 
 		</table>
 		<div class="container">
-			<a href="views/create_user.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
+			<a href="views/usuario/create"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
 		</div>
 	</div>
 </body>
