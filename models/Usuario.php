@@ -33,7 +33,7 @@ class Usuario
     }
 
     public function update($id, $pdo){
-        $sth = $pdo->prepare("UPDATE tb_usuarios SET nome=:nome, email=:email, senha=:senha, tipo=:tipo, setor=:setir WHERE id=:id LIMIT 1");
+        $sth = $pdo->prepare("UPDATE tb_usuarios SET nome=:nome, email=:email, senha=:senha, tipo=:tipo, setor=:setor WHERE id=:id LIMIT 1");
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':email',$this->email,PDO::PARAM_STR);
         $sth->BindValue(':senha',$this->senha,PDO::PARAM_STR);
