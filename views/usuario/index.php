@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<title>Info SQL/PDO</title>
+	<title>Sistema Tarefas</title>
 	<link rel="stylesheet" href="assets/bootstrap.min.css">
 </head>
 <body>
@@ -11,17 +11,19 @@
 			<thead> 
 				<tr> 
 					<th>Nome</th> 
-					<th>Cargo</th> 
-					<th>Idade</th> 
+					<th>Email</th> 
+					<th>Tipo</th> 
+					<th>Setor</th> 
+					<th>Ativo</th> 
 					<th colspan="2">Ações</th>
 				</tr> 
 			</thead> 
 			<tbody> 
-				<?php require_once('controllers/view_users.php'); ?>
+				<?php require_once('../../includes/usuarios_list.php'); ?>
 			</tbody> 
 		</table>
 		<div class="container">
-			<a href="views/usuario/create"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
+			<a href="create.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
 		</div>
 	</div>
 </body>
