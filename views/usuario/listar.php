@@ -23,7 +23,7 @@
 			</tbody> 
 		</table>
 		<div class="container">
-			<a href="create.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
+			<a href="criar.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
 		</div>
 	</div>
 </body>
