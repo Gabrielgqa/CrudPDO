@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Editar Setor</h3>
+          <h3 class="page-header">Editar Usuário</h3>
           <form method="POST" action="../../controllers/UsuarioController.php?id=<?= $_GET['id'] ?>">
             <div class="form-group">
               <label for="nome">Nome</label>

@@ -115,14 +115,14 @@ ALTER TABLE `tb_usuarios`
 
 CREATE TABLE IF NOT EXISTS `tb_tarefas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_tarefa` int(11) DEFAULT NULL,
+  `id_projeto` int(11) DEFAULT NULL,
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `data_ini` date NOT NULL,
   `data_fim` date NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_tarefa` (`id_tarefa`),
+  KEY `id_projeto` (`id_projeto`),
   KEY `id_usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `tb_tarefas` (
 --
 ALTER TABLE `tb_tarefas`
   ADD CONSTRAINT `tb_tarefas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuarios` (`id`),
-  ADD CONSTRAINT `tb_tarefas_ibfk_1` FOREIGN KEY (`id_tarefa`) REFERENCES `tb_tarefas` (`id`);
+  ADD CONSTRAINT `tb_tarefas_ibfk_1` FOREIGN KEY (`id_projeto`) REFERENCES `tb_projetos` (`id`);
 
 
 COMMIT;
