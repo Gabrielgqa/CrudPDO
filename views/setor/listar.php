@@ -1,33 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<title>Sistema Tarefas</title>
-	<link rel="stylesheet" href="../../assets/bootstrap.min.css">
-</head>
+<?php require_once('../../inc/head.php'); ?>
 <body>
-	<div class="container" style="padding-top: 40px;">
-		<?php session_start(); ?>
-		<?php if (isset($_SESSION['message'])): ?>
-			<div class="alert alert-info" role="alert">
-			  <?= $_SESSION['message']; ?>
-			  <?php unset($_SESSION['message']); ?>
+	<?php session_start(); ?>
+	<?php require_once('../../inc/header.php'); ?>
+	<div id="page-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header">Setores</h3>
+					<?php if (isset($_SESSION['message'])): ?>
+				<div class="alert alert-info" role="alert">
+					<?= $_SESSION['message']; ?>
+					<?php unset($_SESSION['message']); ?>
+				</div>
+				<?php endif; ?>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th colspan="2">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php require_once('../../includes/setores_list.php'); ?>
+					</tbody>
+				</table>
+				<div class="container">
+					<a href="criar.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
+				</div>
+				</div>
 			</div>
-		<?php endif; ?>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th colspan="2">Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php require_once('../../includes/setores_list.php'); ?>
-			</tbody>
-		</table>
-		<div class="container">
-			<a href="criar.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
 		</div>
 	</div>
+	<?php require_once('../../inc/scripts.php'); ?>
 </body>
 </html>
