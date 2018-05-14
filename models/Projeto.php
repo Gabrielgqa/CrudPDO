@@ -22,24 +22,21 @@ class Projeto
     }
 
     public function insert($pdo){
-        $sth = $pdo->prepare("INSERT INTO tb_projetos(nome,descricao,data_ini,data_previsto,data_fim,id_usuario) VALUES (:nome,:descricao,:data_ini,:data_previsto,:data_fim,:id_usuario)");
+        $sth = $pdo->prepare("INSERT INTO tb_projetos(nome,descricao,data_ini,data_previsto,id_usuario) VALUES (:nome,:descricao,:data_ini,:data_previsto,:id_usuario)");
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':descricao',$this->descricao,PDO::PARAM_STR);
         $sth->BindValue(':data_ini',$this->data_ini,PDO::PARAM_STR);
         $sth->BindValue(':data_previsto',$this->data_previsto,PDO::PARAM_STR);
-        $sth->BindValue(':data_fim',$this->data_fim,PDO::PARAM_STR);
         $sth->BindValue(':id_usuario',$this->id_usuario,PDO::PARAM_INT);
         return $sth->execute();
     }
 
     public function update($id, $pdo){
-        $sth = $pdo->prepare("UPDATE tb_projetos SET nome=:nome, descricao=:descricao, data_ini=:data_ini, data_previsto=:data_previsto, data_fim=:data_fim, id_usuario=:id_usuario WHERE id=:id LIMIT 1");
+        $sth = $pdo->prepare("UPDATE tb_projetos SET nome=:nome, descricao=:descricao, data_previsto=:data_previsto, id_usuario=:id_usuario WHERE id=:id LIMIT 1");
         $sth->BindValue(':id',$id,PDO::PARAM_INT);
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':descricao',$this->descricao,PDO::PARAM_STR);
-        $sth->BindValue(':data_ini',$this->data_ini,PDO::PARAM_STR);
         $sth->BindValue(':data_previsto',$this->data_previsto,PDO::PARAM_STR);
-        $sth->BindValue(':data_fim',$this->data_fim,PDO::PARAM_STR);
         $sth->BindValue(':id_usuario',$this->id_usuario,PDO::PARAM_INT);
         return $sth->execute();
     }
