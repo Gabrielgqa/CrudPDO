@@ -28,7 +28,8 @@
 						<?php require_once('../../includes/usuarios_list.php'); ?>
 					</tbody>
 				</table>
-				<a href="criar.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
+
+				<a class="btn btn-primary btn-sm pull-right" href="criar.php">Criar novo</a>
 				</div>
 			</div>
 		</div>

@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Criar usuário</h3>
+          <h3 class="page-header">Criar Usuário</h3>
           <form method="POST" action="../../controllers/UsuarioController.php">
               <div class="form-group">
                 <label for="nome">Nome</label>
@@ -23,7 +23,7 @@
               <div class="form-group">
                 <label for="tipo">Tipo</label>
                 <select class="form-control" id="tipo" name="tipo" required>
-                    <option>Selecione o Tipo</option>
+                    <option value="">Selecione o Tipo</option>
                     <option value="1">Administrador</option>
                     <option value="2">Chefe</option>
                     <option value="3">Colaborador</option>
@@ -32,7 +32,7 @@
               <div class="form-group">
                 <label for="setor">Setor</label>
                 <select class="form-control" id="setor" name="setor" required>
-                    <option>Selecione o Setor</option>
+                    <option value="">Selecione o Setor</option>
                     <?php foreach ($setores as $setor): ?>
                         <option value="<?= $setor['id'] ?>"><?= $setor['nome']; ?></option>
                     <?php endforeach; ?>
