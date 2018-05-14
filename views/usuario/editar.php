@@ -53,7 +53,7 @@
         </label>
       </div>
       <input type="hidden" class="form-control" id="action" name="action" value="update">
-      <input type="submit"  class="btn btn-default" value="Criar" style="float: right;">
+      <input type="submit"  class="btn btn-default" value="Salvar" style="float: right;">
     </form>
   </div>
 </body>

@@ -19,6 +19,7 @@ class Setor
 
     public function update($id, $pdo){
         $sth = $pdo->prepare("UPDATE tb_setores SET nome=:nome WHERE id=:id LIMIT 1");
+        $sth->BindValue(':id',$id,PDO::PARAM_INT);
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         return $sth->execute();
     }
