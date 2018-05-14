@@ -6,6 +6,7 @@ class Tarefa
     public $data_ini;
     public $data_fim;
     public $id_usuario;
+    public $id_tarefa;
 
     function __construct($attributes = array())
     {
@@ -16,6 +17,7 @@ class Tarefa
             $this->data_ini = $attributes['data_ini'];
             $this->data_fim = $attributes['data_fim'];
             $this->id_usuario = $attributes['id_usuario'];
+            $this->id_tarefa = $attributes['id_tarefa'];
         }
     }
 
@@ -26,16 +28,18 @@ class Tarefa
         $sth->BindValue(':data_ini',$this->data_ini,PDO::PARAM_STR);
         $sth->BindValue(':data_fim',$this->data_fim,PDO::PARAM_STR);
         $sth->BindValue(':id_usuario',$this->id_usuario,PDO::PARAM_INT);
+        $sth->BindValue(':id_tarefa',$this->id_tarefa,PDO::PARAM_INT);
         return $sth->execute();
     }
 
     public function update($id, $pdo){
-        $sth = $pdo->prepare("UPDATE tb_tarefas SET nome=:nome, descricao=:descricao, data_ini=:data_ini, data_fim=:data_fim, id_usuario=:id_usuario WHERE id=:id LIMIT 1");
+        $sth = $pdo->prepare("UPDATE tb_tarefas SET nome=:nome, descricao=:descricao, data_ini=:data_ini, data_fim=:data_fim, id_usuario=:id_usuario, id_tarefa=:id_tarefa WHERE id=:id LIMIT 1");
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':descricao',$this->descricao,PDO::PARAM_STR);
         $sth->BindValue(':data_ini',$this->data_ini,PDO::PARAM_STR);
         $sth->BindValue(':data_fim',$this->data_fim,PDO::PARAM_STR);
         $sth->BindValue(':id_usuario',$this->id_usuario,PDO::PARAM_INT);
+        $sth->BindValue(':id_tarefa',$this->id_tarefa,PDO::PARAM_INT);
         return $sth->execute();
     }
 

@@ -14,7 +14,7 @@ class Usuario
         {
             $this->nome = $attributes['nome'];
             $this->email = $attributes['email'];
-            $this->senha = $attributes['senha'];
+            $this->senha = array_key_exists('senha', $attributes) ? $attributes['senha'] : null;
             $this->tipo = $attributes['tipo'];
             $this->setor = $attributes['setor'];
             $this->ativo = $attributes['ativo'];
@@ -33,12 +33,13 @@ class Usuario
     }
 
     public function update($id, $pdo){
-        $sth = $pdo->prepare("UPDATE tb_usuarios SET nome=:nome, email=:email, senha=:senha, tipo=:tipo, setor=:setor WHERE id=:id LIMIT 1");
+        $sth = $pdo->prepare("UPDATE tb_usuarios SET nome=:nome, email=:email, tipo=:tipo, setor=:setor, ativo=:ativo WHERE id=:id LIMIT 1");
+        $sth->BindValue(':id',$id,PDO::PARAM_INT);
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':email',$this->email,PDO::PARAM_STR);
-        $sth->BindValue(':senha',$this->senha,PDO::PARAM_STR);
         $sth->BindValue(':tipo',$this->tipo,PDO::PARAM_INT);
         $sth->BindValue(':setor',$this->setor,PDO::PARAM_INT);
+        $sth->BindValue(':ativo',$this->ativo,PDO::PARAM_INT);
         return $sth->execute();
     }
 
