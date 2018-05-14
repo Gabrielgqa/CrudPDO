@@ -9,10 +9,10 @@
                 if(empty($_POST['email']) || empty($_POST['password']))
                     header('location: ../views/login.php');
                 if($usuario = Usuario::login($_POST['email'], md5($_POST['password']), $pdo)) {
-                    $_SESSION['id'] = $usuario->id;
-                    $_SESSION['tipo'] = $usuario->tipo;
-                    $_SESSION['setor'] = $usuario->setor;
-                    $_SESSION['ativo'] = $usuario->ativo;                
+                    $_SESSION['id'] = $usuario['id'];
+                    $_SESSION['tipo'] = $usuario['tipo'];
+                    $_SESSION['setor'] = $usuario['setor'];
+                    $_SESSION['ativo'] = $usuario['ativo'];                
                     header('location: ../views/setor/listar.php');
                 } else {
                     header('location: ../views/login.php');

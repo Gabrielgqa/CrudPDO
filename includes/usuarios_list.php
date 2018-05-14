@@ -7,13 +7,12 @@ $users = Usuario::selectAll($pdo);
 if (isset($users)) {
     foreach ($users as $user) {
         $setor = Setor::select($user['setor'], $pdo);
-        $setor = array_pop($setor);
         echo "
         <tr>
             <td>".$user['nome']."</td>
             <td>".$user['email']."</td>
             <td>".$user['tipo']."</td>
-            <td>".$setor."</td>
+            <td>".$setor['nome']."</td>
             <td>".($user['ativo'] == 0 ? "Inativo" : "Ativo")."</td>
             <td><a href='editar.php?id=".$user['id']."'>Editar</a></td>
             <td><a href='../../controllers/UsuarioController.php?id=".$user['id']."&action=delete'>Excluir</a></td>
