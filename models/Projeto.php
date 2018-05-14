@@ -34,6 +34,7 @@ class Projeto
 
     public function update($id, $pdo){
         $sth = $pdo->prepare("UPDATE tb_projetos SET nome=:nome, descricao=:descricao, data_ini=:data_ini, data_previsto=:data_previsto, data_fim=:data_fim, id_usuario=:id_usuario WHERE id=:id LIMIT 1");
+        $sth->BindValue(':id',$id,PDO::PARAM_INT);
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':descricao',$this->descricao,PDO::PARAM_STR);
         $sth->BindValue(':data_ini',$this->data_ini,PDO::PARAM_STR);
