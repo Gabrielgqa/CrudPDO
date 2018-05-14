@@ -1,12 +1,18 @@
 <?php
     require_once('../../config/config.php');
     require_once('../../models/Setor.php');
+    require_once('../../models/Usuario.php');
+
+    session_start();
+
+    if (!isset($_SESSION['id']) || $_SESSION['tipo'] != Usuario::TIPO_ADMIN) {
+        header('location: ../../views/login.php');
+    }
 
     $setores = Setor::selectAll($pdo);
  ?>
 <?php require_once('../../inc/head.php'); ?>
 <body>
-  <?php session_start(); ?>
   <?php require_once('../../inc/header.php'); ?>
   <div id="page-wrapper">
     <div class="container-fluid">
@@ -62,25 +68,5 @@
     </div>
   </div>
   <?php require_once('../../inc/scripts.php'); ?>
-</body>
-</html>
-
-<?php
-    require_once('../../config/config.php');
-    require_once('../../models/Setor.php');
-
-    $setores = Setor::selectAll($pdo);
- ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Sistema Tarefas</title>
-  <link rel="stylesheet" href="../../assets/bootstrap.min.css">
-</head>
-<body>
-  <div class="container" style="padding-top: 40px;">
-
-  </div>
 </body>
 </html>

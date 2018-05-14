@@ -28,9 +28,9 @@
               <label for="tipo">Tipo</label>
               <select class="form-control" id="tipo" name="tipo" required>
                   <option>Selecione o Tipo</option>
-                  <option value="1" <?= $usuario['tipo'] == 1 ? 'selected' : '' ?>>Tipo 1</option>
-                  <option value="2" <?= $usuario['tipo'] == 2 ? 'selected' : '' ?>>Tipo 2</option>
-                  <option value="3" <?= $usuario['tipo'] == 3 ? 'selected' : '' ?>>Tipo 3</option>
+                  <option value="<?= Usuario::TIPO_ADMIN ?>" <?= $usuario['tipo'] == Usuario::TIPO_ADMIN ? 'selected' : '' ?>>Administrador</option>
+                  <option value="<?= Usuario::TIPO_CHEFE ?>" <?= $usuario['tipo'] == Usuario::TIPO_CHEFE ? 'selected' : '' ?>>Chefe</option>
+                  <option value="<?= Usuario::TIPO_COLABORADOR ?>" <?= $usuario['tipo'] == Usuario::TIPO_COLABORADOR ? 'selected' : '' ?>>Colaborador</option>
               </select>
             </div>
             <div class="form-group">

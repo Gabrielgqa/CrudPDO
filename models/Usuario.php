@@ -8,6 +8,10 @@ class Usuario
     public $setor;
     public $ativo;
 
+    const TIPO_ADMIN = 1;
+    const TIPO_CHEFE = 2;
+    const TIPO_COLABORADOR = 3;
+
     function __construct($attributes = array())
     {
         if (!empty($attributes))
