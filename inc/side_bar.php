@@ -10,6 +10,7 @@
                 <li>
                     <a href="../tarefa/listar.php"><i class="fa fa-tasks fa-fw"></i> Tarefas</a>
                 </li>
+                <?php if($_SESSION['tipo'] == 1){ ?>
                 <li>
                     <a href="../setor/listar.php"><i class="fa fa-sitemap fa-fw"></i> Setores</a>
                 </li>                
@@ -19,6 +20,7 @@
                 <li>
                     <a href="tables.html"><i class="fa fa-file fa-fw"></i> Relatórios</a>
                 </li>
+                <?php }?>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

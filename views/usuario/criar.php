@@ -1,3 +1,9 @@
+<?php
+    require_once('../../config/config.php');
+    require_once('../../models/Setor.php');
+
+    $setores = Setor::selectAll($pdo);
+ ?>
 <?php require_once('../../inc/head.php'); ?>
 <body>
   <?php session_start(); ?>
