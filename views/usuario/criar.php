@@ -30,9 +30,9 @@
         <label for="tipo">Tipo</label>
         <select class="form-control" id="tipo" name="tipo" required>
             <option>Selecione o Tipo</option>
-            <option value="1">Tipo 1</option>
-            <option value="2">Tipo 2</option>
-            <option value="3">Tipo 3</option>
+            <option value="1">Administrador</option>
+            <option value="2">Chefe</option>
+            <option value="3">Colaborador</option>
         </select>
       </div>
       <div class="form-group">
