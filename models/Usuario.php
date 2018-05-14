@@ -70,6 +70,15 @@ class Usuario
         $sth->bindValue(":id", $id, PDO::PARAM_INT);
         return $sth->execute();
     }
+
+    public static function login($email, $senha, $pdo) {
+        $sth = $connection->prepare("SELECT * FROM tb_usuarios WHERE email = :email AND senha = :senha LIMIT 1");
+        $sth->BindValue(':email', $email, PDO::PARAM_STR);
+        $sth->BindValue(':senha',$senha, PDO::PARAM_STR);
+        $sth->execute();
+        $array = $sth->fetch(PDO::FETCH_ASSOC);
+        return $array;
+    }
 }
 
 ?>
