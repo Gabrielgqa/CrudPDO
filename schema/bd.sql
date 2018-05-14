@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `tb_tarefas` (
   `nome` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `data_ini` date NOT NULL,
-  `data_fim` date NOT NULL,
+  `data_fim` date,
   PRIMARY KEY (`id`),
   KEY `id_projeto` (`id_projeto`),
   KEY `id_usuario` (`id_usuario`)

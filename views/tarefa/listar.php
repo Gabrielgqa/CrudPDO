@@ -22,7 +22,7 @@
               <th>Fim</th>
               <th>Usuário</th>
               <th>Projeto</th>
-              <th colspan="2">Ações</th>
+              <th colspan="3">Ações</th>
             </tr>
           </thead>
           <tbody>

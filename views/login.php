@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['id'])) {
+        header('location: ../views/setor/listar.php');
+    }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 

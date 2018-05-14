@@ -15,18 +15,17 @@ class Tarefa
             $this->nome = $attributes['nome'];
             $this->descricao = $attributes['descricao'];
             $this->data_ini = $attributes['data_ini'];
-            $this->data_fim = $attributes['data_fim'];
+            $this->data_fim = empty($attributes['data_fim']) ? null : $attributes['data_fim'];
             $this->id_usuario = $attributes['id_usuario'];
             $this->id_projeto = empty($attributes['id_projeto']) ? null : $attributes['id_projeto'];
         }
     }
 
     public function insert($pdo){
-        $sth = $pdo->prepare("INSERT INTO tb_tarefas(nome,descricao,data_ini,data_fim,id_usuario, id_projeto) VALUES (:nome,:descricao,:data_ini,:data_fim,:id_usuario, :id_projeto)");
+        $sth = $pdo->prepare("INSERT INTO tb_tarefas(nome,descricao,data_ini,id_usuario, id_projeto) VALUES (:nome,:descricao,:data_ini,:id_usuario, :id_projeto)");
         $sth->BindValue(':nome',$this->nome,PDO::PARAM_STR);
         $sth->BindValue(':descricao',$this->descricao,PDO::PARAM_STR);
         $sth->BindValue(':data_ini',$this->data_ini,PDO::PARAM_STR);
-        $sth->BindValue(':data_fim',$this->data_fim,PDO::PARAM_STR);
         $sth->BindValue(':id_usuario',$this->id_usuario,PDO::PARAM_INT);
         $sth->BindValue(':id_projeto',$this->id_projeto,PDO::PARAM_INT);
         return $sth->execute();
@@ -49,6 +48,22 @@ class Tarefa
         $sth->BindValue(':id',$id,PDO::PARAM_INT);
         $sth->execute();
         $array = $sth->fetch(PDO::FETCH_ASSOC);
+        return $array;
+    }
+
+    public static function selectAllBySetor($setor, $pdo){
+        $sth = $pdo->prepare("SELECT t.* FROM tb_tarefas t INNER JOIN tb_usuarios u on u.id = t.id_usuario WHERE u.setor = :setor");
+        $sth->BindValue(':setor',$setor,PDO::PARAM_INT);
+        $sth->execute();
+        $array = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $array;
+    }
+
+    public static function selectAllByUsuario($id, $pdo){
+        $sth = $pdo->prepare("SELECT t.* FROM tb_tarefas t INNER JOIN tb_usuarios u on u.id = t.id_usuario WHERE u.id = :id");
+        $sth->BindValue(':id', $id,PDO::PARAM_INT);
+        $sth->execute();
+        $array = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $array;
     }
 

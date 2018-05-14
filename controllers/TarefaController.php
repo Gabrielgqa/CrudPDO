@@ -26,6 +26,18 @@
             }
         break;
 
+        case 'complete':
+            if (isset($_REQUEST)) {
+                $tarefa = new Tarefa(Tarefa::select($_REQUEST['id'], $pdo));
+                $tarefa->data_fim = (new DateTime())->format('Y-m-d');
+                if ($tarefa->update($_REQUEST['id'], $pdo)) {
+                    session_start();
+                    $_SESSION['message'] = "Tarefa completada com sucesso!";
+                    header('Location: ../views/tarefa/listar.php');
+                }
+            }
+        break;
+
         case 'delete':
             if (isset($_GET['id'])) {
                 if(Tarefa::delete($_GET['id'], $pdo)) {
