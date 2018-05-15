@@ -22,7 +22,7 @@
               <th>Fim</th>
               <th>Usuário</th>
               <th>Projeto</th>
-              <th colspan="3">Ações</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@
           </tbody>
         </table>
 
-        <a class="btn btn-primary btn-sm pull-right" href="criar.php">Criar nova</a>
+        <a class="btn btn-success btn-sm pull-right" href="criar.php">Criar nova</a>
         </div>
       </div>
     </div>

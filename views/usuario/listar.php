@@ -21,7 +21,7 @@
 							<th>Tipo</th>
 							<th>Setor</th>
 							<th>Ativo</th>
-							<th colspan="2">Ações</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -29,7 +29,7 @@
 					</tbody>
 				</table>
 
-				<a class="btn btn-primary btn-sm pull-right" href="criar.php">Criar novo</a>
+				<a class="btn btn-success btn-sm pull-right" href="criar.php">Criar novo</a>
 				</div>
 			</div>
 		</div>

@@ -14,8 +14,8 @@ if (isset($users)) {
             <td>".$user['tipo']."</td>
             <td>".$setor['nome']."</td>
             <td>".($user['ativo'] == 0 ? "Inativo" : "Ativo")."</td>
-            <td><a href='editar.php?id=".$user['id']."'>Editar</a></td>
-            <td><a href='../../controllers/UsuarioController.php?id=".$user['id']."&action=delete'>Excluir</a></td>
+            <td><a href='editar.php?id=".$user['id']."'><button type='button' class='btn btn-primary btn-sm'><i class='fa fa-pencil' aria-hidden='true'> Editar</i></button></a>
+            <a href='../../controllers/UsuarioController.php?id=".$user['id']."&action=delete'><button type='button' class='btn btn-danger btn-sm'><i class='fa fa-trash' aria-hidden='true'> Excluir</i></button></a></td>
         </tr>
         ";
     }

@@ -17,14 +17,14 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th colspan="2">Ações</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php require_once('../../includes/setores_list.php'); ?>
 					</tbody>
 				</table>
-				<a href="criar.php"><button type="button" class="btn btn-primary btn-sm" style="float: right;">Criar novo</button></a>
+				<a href="criar.php"><button type="button" class="btn btn-success btn-sm" style="float: right;">Criar novo</button></a>
 				</div>
 			</div>
 		</div>

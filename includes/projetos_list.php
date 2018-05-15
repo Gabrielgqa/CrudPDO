@@ -16,8 +16,8 @@ if (!empty($projetos)) {
             <td>".(new DateTime($projeto['data_fim']))->format('d/m/Y')."</td>
             <td>".$usuario['nome']."</td>
             <td>".$projeto['nome']."</td>
-            <td><a href='editar.php?id=".$projeto['id']."'>Editar</a></td>
-            <td><a href='../../controllers/ProjetoController.php?id=".$projeto['id']."&action=delete'>Excluir</a></td>
+            <td><a href='editar.php?id=".$projeto['id']."'><button type='button' class='btn btn-primary btn-sm'><i class='fa fa-pencil' aria-hidden='true'> Editar</i></button></a>
+            <a href='../../controllers/ProjetoController.php?id=".$projeto['id']."&action=delete'><button type='button' class='btn btn-danger btn-sm'><i class='fa fa-trash' aria-hidden='true'> Excluir</i></button></a></td>
         </tr>
         ";
     }

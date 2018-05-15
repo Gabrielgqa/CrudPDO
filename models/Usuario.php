@@ -83,6 +83,13 @@ class Usuario
         $array = $sth->fetch(PDO::FETCH_ASSOC);
         return $array;
     }
+
+    public static function quantidade($pdo){
+        $sth = $pdo->query("SELECT * FROM tb_usuarios ORDER BY nome ASC");
+        $sth->execute();
+        $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return count($results);
+    }
 }
 
 ?>

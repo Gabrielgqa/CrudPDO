@@ -17,9 +17,6 @@
                 <li>
                     <a href="../usuario/listar.php"><i class="fa fa-users fa-fw"></i> Usuários</a>
                 </li>
-                <li>
-                    <a href="tables.html"><i class="fa fa-file fa-fw"></i> Relatórios</a>
-                </li>
                 <?php }?>
             </ul>
         </div>
