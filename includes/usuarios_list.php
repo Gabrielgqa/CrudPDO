@@ -7,6 +7,25 @@ $users = Usuario::selectAll($pdo);
 if (isset($users)) {
     foreach ($users as $user) {
         $setor = Setor::select($user['setor'], $pdo);
+
+        switch ($user['tipo']) {
+            case Usuario::TIPO_ADMIN:
+                $user['tipo'] = "Admin";
+                break;
+
+            case Usuario::TIPO_CHEFE:
+                $user['tipo'] = "Chefe";
+                break;
+
+            case Usuario::TIPO_COLABORADOR:
+                $user['tipo'] = "Colaborador";
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
         echo "
         <tr>
             <td>".$user['nome']."</td>
