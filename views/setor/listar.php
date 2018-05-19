@@ -1,6 +1,13 @@
-<?php require_once('../../inc/head.php'); ?>
+<?php require_once('../../inc/head.php');
+require_once('../../models/Usuario.php');
+
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    header('location: ../../views/login.php');
+}
+?>
 <body>
-	<?php session_start(); ?>
 	<?php require_once('../../inc/header.php'); ?>
 	<div id="page-wrapper">
 		<div class="container-fluid">
@@ -17,14 +24,18 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th>Ações</th>
+							<?php if ($_SESSION['tipo'] == Usuario::TIPO_ADMIN): ?>
+									<th>Ações</th>
+							<?php endif; ?>
 						</tr>
 					</thead>
 					<tbody>
 						<?php require_once('../../includes/setores_list.php'); ?>
 					</tbody>
 				</table>
-				<a href="criar.php"><button type="button" class="btn btn-success btn-sm" style="float: right;">Criar novo</button></a>
+				<?php if ($_SESSION['tipo'] == Usuario::TIPO_ADMIN): ?>
+						<a href="criar.php"><button type="button" class="btn btn-success btn-sm" style="float: right;">Criar novo</button></a>
+				<?php endif; ?>
 				</div>
 			</div>
 		</div>

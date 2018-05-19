@@ -1,6 +1,14 @@
 <?php
     require_once('../../config/config.php');
     require_once('../../models/Setor.php');
+    require_once('../../models/Usuario.php');
+
+    session_start();
+
+    if (!isset($_SESSION['id']) || $_SESSION['tipo'] != Usuario::TIPO_ADMIN) {
+        header('location: ../../views/login.php');
+    }
+
     $setor = Setor::select($_GET['id'], $pdo);
  ?>
 <?php require_once('../../inc/head.php'); ?>

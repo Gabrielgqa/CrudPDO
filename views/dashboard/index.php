@@ -4,6 +4,14 @@
     require_once('../../models/Tarefa.php');
     require_once('../../models/Setor.php');
     require_once('../../models/Usuario.php');
+
+    session_start();
+
+    if (!isset($_SESSION['id'])) {
+        header('location: ../../views/login.php');
+        exit();
+    }
+
     $qtd_projetos = Projeto::quantidade($pdo);
     $qtd_tarefas = Tarefa::quantidade($pdo);
     $qtd_setores = Setor::quantidade($pdo);
@@ -11,7 +19,6 @@
  ?>
 <?php require_once('../../inc/head.php'); ?>
 <body>
-	<?php session_start(); ?>
 	<?php require_once('../../inc/header.php'); ?>
 	<div id="page-wrapper">
 		<div class="container-fluid">

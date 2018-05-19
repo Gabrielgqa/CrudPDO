@@ -1,6 +1,13 @@
 <?php
     require_once('../../config/config.php');
     require_once('../../models/Projeto.php');
+
+    session_start();
+
+    if (!isset($_SESSION['id'])) {
+        header('location: ../../views/login.php');
+    }
+
     $projeto = Projeto::select($_GET['id'], $pdo);
  ?>
 <?php require_once('../../inc/head.php'); ?>

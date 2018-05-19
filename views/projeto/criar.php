@@ -1,6 +1,12 @@
 <?php require_once('../../inc/head.php'); ?>
+<?php
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    header('location: ../../views/login.php');
+}
+?>
 <body>
-  <?php session_start(); ?>
   <?php require_once('../../inc/header.php'); ?>
   <div id="page-wrapper">
     <div class="container-fluid">
