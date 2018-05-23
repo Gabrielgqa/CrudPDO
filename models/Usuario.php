@@ -11,6 +11,7 @@ class Usuario
     const TIPO_ADMIN = 1;
     const TIPO_CHEFE = 2;
     const TIPO_COLABORADOR = 3;
+    const TIPO_CLIENTE = 4;
 
     function __construct($attributes = array())
     {
