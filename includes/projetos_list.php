@@ -4,7 +4,28 @@ require_once('../../models/Usuario.php');
 require_once('../../models/Setor.php');
 require_once('../../models/Projeto.php');
 
-$projetos = Projeto::selectAll($pdo);
+if (!isset($_SESSION['id'])) {
+    header('location: ../../views/login.php');
+} else {
+    switch ($_SESSION['tipo']) {
+        case Usuario::TIPO_ADMIN:
+            $projetos = Projeto::selectAll($pdo);
+            break;
+
+        case Usuario::TIPO_CHEFE:
+            $projetos = Projeto::selectAllBySetor($_SESSION['setor'], $pdo);
+            break;
+
+        case Usuario::TIPO_COLABORADOR:
+            $projetos = Projeto::selectAllByUsuario($_SESSION['id'], $pdo);
+            break;
+
+        default:
+            # code...
+            break;
+    }
+}
+
 if (!empty($projetos)) {
     foreach ($projetos as $projeto) {
         $usuario = Usuario::select($projeto['id_usuario'], $pdo);
