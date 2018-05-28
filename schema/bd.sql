@@ -137,6 +137,19 @@ ALTER TABLE `tb_tarefas`
   ADD CONSTRAINT `tb_tarefas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuarios` (`id`),
   ADD CONSTRAINT `tb_tarefas_ibfk_1` FOREIGN KEY (`id_projeto`) REFERENCES `tb_projetos` (`id`);
 
+--
+-- Estrutura da tabela `tb_clientes`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `numero_registro` varchar(255) NOT NULL,
+  `telefone` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 COMMIT;
 
