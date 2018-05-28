@@ -49,6 +49,22 @@ class Projeto
         return $array;
     }
 
+    public static function selectAllBySetor($setor, $pdo){
+        $sth = $pdo->prepare("SELECT p.* FROM tb_projetos p INNER JOIN tb_usuarios u on u.id = p.id_usuario WHERE u.setor = :setor");
+        $sth->BindValue(':setor', $setor, PDO::PARAM_INT);
+        $sth->execute();
+        $array = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $array;
+    }
+
+    public static function selectAllByUsuario($id, $pdo){
+        $sth = $pdo->prepare("SELECT p.* FROM tb_projetos p INNER JOIN tb_usuarios u on u.id = p.id_usuario WHERE u.id = :id");
+        $sth->BindValue(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        $array = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $array;
+    }
+
     public static function selectAll($pdo){
         $sth = $pdo->query("SELECT * FROM tb_projetos ORDER BY nome ASC");
         $sth->execute();
