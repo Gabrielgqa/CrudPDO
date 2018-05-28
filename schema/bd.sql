@@ -151,6 +151,16 @@ CREATE TABLE IF NOT EXISTS `tb_clientes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+
+CREATE TABLE `tb_tarefas_comentarios` (
+  `id` int(11) NOT NULL,
+  `id_tarefa` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `data` datetime NOT NULL,
+  `comentario` varchar(600) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
