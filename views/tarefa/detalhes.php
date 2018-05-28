@@ -55,8 +55,18 @@
         </div>
         <div class="col-lg-12">
             <p class="bg-info">Teste</p>
-            <p class="bg-info">Teste</p>
-            <p class="bg-info">Teste</p>
+            </br>
+            <form action="../../controllers/ComentarioController.php">
+                <div class="form-group">
+                <textarea id="comentario" name="comentario" id="" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id_tarefa" name="id_tarefa" value="<?=  $tarefa['id']; ?>">
+                    <input type="hidden" class="form-control" id="id_usuario" name="id_usuario" value="<?= $_SESSION['id']; ?>">
+                    <input type="hidden" class="form-control" id="action" name="action" value="create">
+                    <input type="submit" class="btn btn-success pull-right" value="Enviar">
+                </div>                
+            </form>
         </div>
       </div>
     </div>

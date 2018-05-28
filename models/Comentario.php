@@ -1,5 +1,5 @@
 <?php
-class Tarefa
+class Comentario
 {
     public $id_tarefa;
     public $id_usuario;
