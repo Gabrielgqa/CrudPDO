@@ -8,10 +8,27 @@
 
     if (!isset($_SESSION['id'])) {
         header('location: ../../views/login.php');
-    }
+    } else {
+        switch ($_SESSION['tipo']) {
+            case Usuario::TIPO_ADMIN:
+                $projetos = Projeto::selectAll($pdo);
+                break;
 
-    $projetos = Projeto::selectAll($pdo);
-    $tarefa = Tarefa::select($_GET['id'], $pdo);
+            case Usuario::TIPO_CHEFE:
+                $projetos = Projeto::selectAllBySetor($_SESSION['setor'], $pdo);
+                break;
+
+            case Usuario::TIPO_COLABORADOR:
+                $projetos = Projeto::selectAllByUsuario($_SESSION['id'], $pdo);
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        $tarefa = Tarefa::select($_GET['id'], $pdo);
+    }
  ?>
 <?php require_once('../../inc/head.php'); ?>
 <body>
@@ -36,7 +53,7 @@
             </div>
             <div class="form-group">
               <label for="id_projeto">Projeto</label>
-              <select class="form-control" id="id_projeto" name="id_projeto">
+              <select class="form-control" id="id_projeto" name="id_projeto" required>
                   <option value="">Selecione o Projeto</option>
                   <?php foreach ($projetos as $projeto): ?>
                       <option value="<?= $projeto['id']; ?>" <?= $tarefa['id_projeto'] == $projeto['id'] ? 'selected' : '' ?>><?= $projeto['nome']; ?></option>
