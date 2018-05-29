@@ -46,7 +46,7 @@
             <div class="panel-body">
                 Nome: <?= $tarefa['nome']; ?></br>
                 Descrição: <?= $tarefa['descricao']; ?></br>
-                Data Inicil: <?= $tarefa['data_ini']; ?></br>
+                Data Inicil: <?= date("d/m/Y", strtotime($tarefa['data_ini'])); ?></br>
                 Data Final: <?= $tarefa['data_fim']; ?></br>
             </div>
             </div>
@@ -58,7 +58,7 @@
         <?php 
             $comentarios = Comentario::selectByTarefa($tarefa['id'], $pdo); 
             foreach ($comentarios as $comentario) {
-                echo"<p class='bg-info' style='padding: 5px; margin-bottom: 10px;'><span style='font-size: 10px;' class='pull-right'>Autor: ".$comentario['id_usuario']." - Data: ".$comentario['data']."</span></br>".$comentario['comentario']."</p>";
+                echo"<p class='bg-info' style='padding: 5px; margin-bottom: 10px;'><span style='font-size: 10px;' class='pull-right'>Autor: ".Usuario::select($comentario['id_usuario'], $pdo)['nome']." - Data: ".date("d/m/Y", strtotime($comentario['data']))."</span></br>".$comentario['comentario']."</p>";
             }
         ?>
             <form action="../../controllers/ComentarioController.php">
