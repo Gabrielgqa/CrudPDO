@@ -35,8 +35,8 @@ class Comentario
         return $sth->execute();
     }
 
-    public static function selectAll($pdo){
-        $sth = $pdo->query("SELECT * FROM tb_tarefas_comentarios ORDER BY data ASC");
+    public static function selectByTarefa($id, $pdo){
+        $sth = $pdo->query("SELECT * FROM tb_tarefas_comentarios WHERE id_tarefa=$id ORDER BY data ASC");
         $sth->execute();
         $results = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $results;

@@ -13,7 +13,7 @@
                     $_SESSION['tipo'] = $usuario['tipo'];
                     $_SESSION['setor'] = $usuario['setor'];
                     $_SESSION['ativo'] = $usuario['ativo'];                
-                    header('location: ../views/setor/listar.php');
+                    header('location: ../views/dashboard/index.php');
                 } else {
                     header('location: ../views/login.php');
                 }

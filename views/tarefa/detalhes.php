@@ -3,6 +3,7 @@
     require_once('../../models/Usuario.php');
     require_once('../../models/Projeto.php');
     require_once('../../models/Tarefa.php');
+    require_once('../../models/Comentario.php');
 
     session_start();
 
@@ -54,11 +55,15 @@
             <h5>Histórico de comentários</h5>
         </div>
         <div class="col-lg-12">
-            <p class="bg-info">Teste</p>
-            </br>
+        <?php 
+            $comentarios = Comentario::selectByTarefa($tarefa['id'], $pdo); 
+            foreach ($comentarios as $comentario) {
+                echo"<p class='bg-info' style='padding: 5px; margin-bottom: 10px;'><span style='font-size: 10px;' class='pull-right'>Autor: ".$comentario['id_usuario']." - Data: ".$comentario['data']."</span></br>".$comentario['comentario']."</p>";
+            }
+        ?>
             <form action="../../controllers/ComentarioController.php">
                 <div class="form-group">
-                <textarea id="comentario" name="comentario" id="" rows="2" class="form-control"></textarea>
+                <textarea id="comentario" name="comentario" id="" rows="2" class="form-control" style="resize: none;"></textarea>
                 </div>
                 <div class="form-group">
                     <input type="hidden" class="form-control" id="id_tarefa" name="id_tarefa" value="<?=  $tarefa['id']; ?>">
